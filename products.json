@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "mouse",
+    "description": "blanco",
+    "price": 2000,
+    "thumbnail": "sin imagen",
+    "code": "abc123",
+    "stock": 20
+  },
+  {
+    "id": 2,
+    "title": "cargador",
+    "description": "iphone",
+    "price": 15000,
+    "thumbnail": "sin imagen",
+    "code": "abc129",
+    "stock": 30
+  },
+  {
+    "id": 3,
+    "title": "asus",
+    "description": "gamer",
+    "price": 15000,
+    "thumbnail": "sin imagen",
+    "code": "abc125",
+    "stock": 30
+  }
+]
