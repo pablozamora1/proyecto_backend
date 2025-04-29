@@ -102,6 +102,20 @@ class ProductManager {
       }
     } catch (error) {}
   }
+  // eliminar archivo
+
+  async deleteProduct(id) {
+    try {
+      const arrayProduct = await this.readFlies();
+      const index = arrayProduct.findIndex((item) => item.id === id);
+      if (index !== -1) {
+        arrayProduct.splice(index, 1);
+        await this.saveFiles(arrayProduct);
+      } else {
+        console.log("no se encontro el producto a actualizar");
+      }
+    } catch (error) {}
+  }
 }
 
 // // testing
@@ -135,7 +149,6 @@ const notebook = {
   stock: 30,
 };
 
-
 const cargador = {
   id: 2,
   title: "cargador",
@@ -157,9 +170,14 @@ async function testBusquedaId() {
 async function testUpdate() {
   await manager.updateProduct(2, cargador);
 }
-testUpdate();
-testBusquedaId();
+async function testDelete() {
+  await manager.deleteProduct(2);
+}
 
+testDelete();
+
+// testUpdate();
+// testBusquedaId();
 
 // manager.getProducts();
 // manager.getProductById(30);
