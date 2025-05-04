@@ -9,6 +9,15 @@
     "stock": 20
   },
   {
+    "id": 2,
+    "title": "iphone",
+    "description": "16 ProMax",
+    "price": 5000,
+    "thumbnail": "sin imagen",
+    "code": "abc124",
+    "stock": 30
+  },
+  {
     "id": 3,
     "title": "asus",
     "description": "gamer",

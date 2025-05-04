@@ -1,5 +1,4 @@
-const { triggerAsyncId } = require("async_hooks");
-const { title } = require("process");
+
 
 const fs = require("fs").promises;
 
@@ -27,11 +26,8 @@ class ProductManager {
       return;
     }
 
-    // if (this.products.some((item) => item.code === item)) {
-    //   console.log("el codigo debe ser unico");
-    //   return;
-    // }
-    // cremos un nuevo objeto con todos los datos
+
+    //un nuevo objeto con todos los datos
     const newProduct = {
       id: ++ProductManager.ultID,
       title,
@@ -62,7 +58,7 @@ class ProductManager {
       if (!product) {
         console.log("producto no encontrado");
       } else {
-        console.log("producto encontrado", product);
+        console.log("producto encontrado");
       }
       return product;
     } catch (error) {
@@ -122,8 +118,6 @@ class ProductManager {
 
 const manager = new ProductManager("./products.json");
 
-// manager.getProducts();
-
 const mouse = {
   title: "mouse",
   description: "blanco",
@@ -150,7 +144,7 @@ const notebook = {
 };
 
 const cargador = {
-  id: 2,
+  id: 1,
   title: "cargador",
   description: "iphone",
   price: 15000,
@@ -158,26 +152,23 @@ const cargador = {
   code: "abc129",
   stock: 30,
 };
-// manager.addProduct(mouse);
-// manager.addProduct(telefono);
-// manager.addProduct(notebook);
 
-async function testBusquedaId() {
-  const product = await manager.getProductById(3);
+
+async function testBusquedaId(id) {
+  const product = await manager.getProductById(id);
   console.log(product);
 }
 
 async function testUpdate() {
-  await manager.updateProduct(2, cargador);
+  await manager.updateProduct(1, cargador);
 }
-async function testDelete() {
-  await manager.deleteProduct(2);
+async function testDelete(id) {
+  await manager.deleteProduct(id);
 }
 
-testDelete();
-
-// testUpdate();
-// testBusquedaId();
-
-// manager.getProducts();
-// manager.getProductById(30);
+// manager.addProduct(mouse);
+// manager.addProduct(telefono);
+// manager.addProduct(notebook);
+// testUpdate(1, cargador);
+// testBusquedaId(3);
+// testDelete(3);
