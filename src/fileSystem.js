@@ -1,6 +1,5 @@
-
-
-const fs = require("fs").promises;
+import express from "express";
+import { promises as fs } from "fs";
 
 class ProductManager {
   //variable estatica
@@ -26,7 +25,6 @@ class ProductManager {
       return;
     }
 
-
     //un nuevo objeto con todos los datos
     const newProduct = {
       id: ++ProductManager.ultID,
@@ -46,8 +44,9 @@ class ProductManager {
     await this.saveFiles(this.products);
   }
   // metodo para traer los array
-  getProducts() {
-    console.log(this.products);
+  async getProducts() {
+    const product = await this.readFlies();
+    return console.log(product);
   }
 
   // buscar producto por ID
@@ -96,7 +95,9 @@ class ProductManager {
       } else {
         console.log("no se encontro el producto a actualizar");
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
   // eliminar archivo
 
@@ -118,14 +119,14 @@ class ProductManager {
 
 const manager = new ProductManager("./products.json");
 
-const mouse = {
-  title: "mouse",
-  description: "blanco",
-  price: 2000,
-  thumbnail: "sin imagen",
-  code: "abc123",
-  stock: 20,
-};
+// const mouse = {
+//   title: "mouse",
+//   description: "blanco",
+//   price: 2000,
+//   thumbnail: "sin imagen",
+//   code: "abc123",
+//   stock: 20,
+// };
 const telefono = {
   title: "iphone",
   description: "16 ProMax",
@@ -144,15 +145,85 @@ const notebook = {
 };
 
 const cargador = {
-  id: 1,
   title: "cargador",
   description: "iphone",
   price: 15000,
   thumbnail: "sin imagen",
-  code: "abc129",
+  code: "abc134",
   stock: 30,
 };
 
+const control = {
+  title: "control",
+  description: "bluetooth",
+  price: 15070,
+  thumbnail: "sin imagen",
+  code: "abc126",
+  stock: 6,
+};
+
+const vaso = {
+  title: "control",
+  description: "bluetooth",
+  price: 15070,
+  thumbnail: "sin imagen",
+  code: "abc127",
+  stock: 6,
+};
+
+const monitor = {
+  title: "monitor",
+  description: "24 pulgadas",
+  price: 1467,
+  thumbnail: "sin imagen",
+  code: "abc128",
+  stock: 9,
+};
+
+const taladro = {
+  title: "taladro",
+  description: "electrico",
+  price: 346,
+  thumbnail: "sin imagen",
+  code: "abc129",
+  stock: 8,
+};
+
+const camaraFotos = {
+  title: "camara de fotos",
+  description: "reflex",
+  price: 1558,
+  thumbnail: "sin imagen",
+  code: "abc130",
+  stock: 2,
+};
+
+const casco = {
+  title: "casco de bicicleta",
+  description: "29 pulgadas",
+  price: 1570,
+  thumbnail: "sin imagen",
+  code: "abc131",
+  stock: 5,
+};
+
+const perfume = {
+  title: "perfume",
+  description: "de hombre",
+  price: 157,
+  thumbnail: "sin imagen",
+  code: "abc132",
+  stock: 7,
+};
+
+const tvbox = {
+  title: "tvbox",
+  description: "xiaomi",
+  price: 154,
+  thumbnail: "sin imagen",
+  code: "abc133",
+  stock: 9,
+};
 
 async function testBusquedaId(id) {
   const product = await manager.getProductById(id);
@@ -166,9 +237,22 @@ async function testDelete(id) {
   await manager.deleteProduct(id);
 }
 
-// manager.addProduct(mouse);
+async function testGetProducts() {
+  await manager.getProducts();
+}
+
+testGetProducts();
+// manager.addProduct(control);
+// manager.addProduct(camaraFotos);
+// manager.addProduct(monitor);
+// manager.addProduct(vaso);
+// manager.addProduct(taladro);
+// manager.addProduct(casco);
 // manager.addProduct(telefono);
 // manager.addProduct(notebook);
+// manager.addProduct(perfume);
+// manager.addProduct(tvbox);
+// manager.addProduct(cargador);
 // testUpdate(1, cargador);
 // testBusquedaId(3);
 // testDelete(3);
