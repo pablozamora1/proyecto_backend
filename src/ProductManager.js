@@ -1,12 +1,12 @@
 import express from "express";
 import { promises as fs } from "fs";
 
-class ProductManager {
+export default class ProductManager {
   //variable estatica
   static ultID = 0;
   constructor(path) {
-    this.products = [];
     this.path = path;
+    this.products = [];
   }
   // metodos
 
@@ -117,7 +117,7 @@ class ProductManager {
 
 // // testing
 
-const manager = new ProductManager("./products.json");
+//const manager = new ProductManager("./products.json");
 
 // const mouse = {
 //   title: "mouse",
@@ -126,104 +126,105 @@ const manager = new ProductManager("./products.json");
 //   thumbnail: "sin imagen",
 //   code: "abc123",
 //   stock: 20,
+// // };
+// const telefono = {
+//   title: "iphone",
+//   description: "16 ProMax",
+//   price: 5000,
+//   thumbnail: "sin imagen",
+//   code: "abc124",
+//   stock: 30,
 // };
-const telefono = {
-  title: "iphone",
-  description: "16 ProMax",
-  price: 5000,
-  thumbnail: "sin imagen",
-  code: "abc124",
-  stock: 30,
-};
-const notebook = {
-  title: "asus",
-  description: "gamer",
-  price: 15000,
-  thumbnail: "sin imagen",
-  code: "abc125",
-  stock: 30,
-};
+// const notebook = {
+//   title: "asus",
+//   description: "gamer",
+//   price: 15000,
+//   thumbnail: "sin imagen",
+//   code: "abc125",
+//   stock: 30,
+// };
 
-const cargador = {
-  title: "cargador",
-  description: "iphone",
-  price: 15000,
-  thumbnail: "sin imagen",
-  code: "abc134",
-  stock: 30,
-};
+// const cargador = {
+//   title: "cargador",
+//   description: "iphone",
+//   price: 15000,
+//   thumbnail: "sin imagen",
+//   code: "abc134",
+//   stock: 30,
+// };
 
-const control = {
-  title: "control",
-  description: "bluetooth",
-  price: 15070,
-  thumbnail: "sin imagen",
-  code: "abc126",
-  stock: 6,
-};
+// const control = {
+//   title: "control",
+//   description: "bluetooth",
+//   price: 15070,
+//   thumbnail: "sin imagen",
+//   code: "abc126",
+//   stock: 6,
+// };
 
-const vaso = {
-  title: "control",
-  description: "bluetooth",
-  price: 15070,
-  thumbnail: "sin imagen",
-  code: "abc127",
-  stock: 6,
-};
+// const vaso = {
+//   title: "control",
+//   description: "bluetooth",
+//   price: 15070,
+//   thumbnail: "sin imagen",
+//   code: "abc127",
+//   stock: 6,
+// };
 
-const monitor = {
-  title: "monitor",
-  description: "24 pulgadas",
-  price: 1467,
-  thumbnail: "sin imagen",
-  code: "abc128",
-  stock: 9,
-};
+// const monitor = {
+//   title: "monitor",
+//   description: "24 pulgadas",
+//   price: 1467,
+//   thumbnail: "sin imagen",
+//   code: "abc128",
+//   stock: 9,
+// };
 
-const taladro = {
-  title: "taladro",
-  description: "electrico",
-  price: 346,
-  thumbnail: "sin imagen",
-  code: "abc129",
-  stock: 8,
-};
+// const taladro = {
+//   title: "taladro",
+//   description: "electrico",
+//   price: 346,
+//   thumbnail: "sin imagen",
+//   code: "abc129",
+//   stock: 8,
+// };
 
-const camaraFotos = {
-  title: "camara de fotos",
-  description: "reflex",
-  price: 1558,
-  thumbnail: "sin imagen",
-  code: "abc130",
-  stock: 2,
-};
+// const camaraFotos = {
+//   title: "camara de fotos",
+//   description: "reflex",
+//   price: 1558,
+//   thumbnail: "sin imagen",
+//   code: "abc130",
+//   stock: 2,
+// };
 
-const casco = {
-  title: "casco de bicicleta",
-  description: "29 pulgadas",
-  price: 1570,
-  thumbnail: "sin imagen",
-  code: "abc131",
-  stock: 5,
-};
+// const casco = {
+//   title: "casco de bicicleta",
+//   description: "29 pulgadas",
+//   price: 1570,
+//   thumbnail: "sin imagen",
+//   code: "abc131",
+//   stock: 5,
+// };
 
-const perfume = {
-  title: "perfume",
-  description: "de hombre",
-  price: 157,
-  thumbnail: "sin imagen",
-  code: "abc132",
-  stock: 7,
-};
+// const perfume = {
+//   title: "perfume",
+//   description: "de hombre",
+//   price: 157,
+//   thumbnail: "sin imagen",
+//   code: "abc132",
+//   stock: 7,
+// };
 
-const tvbox = {
-  title: "tvbox",
-  description: "xiaomi",
-  price: 154,
-  thumbnail: "sin imagen",
-  code: "abc133",
-  stock: 9,
-};
+// const tvbox = {
+//   title: "tvbox",
+//   description: "xiaomi",
+//   price: 154,
+//   thumbnail: "sin imagen",
+//   code: "abc133",
+//   stock: 9,
+// };
+
 
 async function testBusquedaId(id) {
   const product = await manager.getProductById(id);
@@ -241,7 +242,7 @@ async function testGetProducts() {
   await manager.getProducts();
 }
 
-testGetProducts();
+// testGetProducts();
 // manager.addProduct(control);
 // manager.addProduct(camaraFotos);
 // manager.addProduct(monitor);
