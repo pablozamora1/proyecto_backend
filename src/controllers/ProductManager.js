@@ -61,7 +61,7 @@ export default class ProductManager {
       }
       return product;
     } catch (error) {
-      console.log("error al buscar el producto", error);
+      console.log("error al buscar el producto", error);``
     }
   }
 
