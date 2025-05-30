@@ -1,6 +1,7 @@
 import express from "express";
 import { promises as fs } from "fs";
 
+
 export default class ProductManager {
   //variable estatica
   static ultID = 0;

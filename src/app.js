@@ -7,8 +7,8 @@ const PUERTO = 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use("./api/products", productRouter);
-app.use("./api/carts", cartsRouter);
+app.use("/api/products", productRouter);
+app.use("/api/carts", cartsRouter);
 
 app.listen(PUERTO, () => {
   console.log(`escuchando en el http://localhost:${PUERTO}`);

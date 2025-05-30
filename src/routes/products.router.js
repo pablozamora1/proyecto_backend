@@ -2,11 +2,11 @@ import express from "express";
 const router = express.Router();
 
 import ProductManager from "../controllers/ProductManager.js";
-const productManager = new ProductManager("../models/products.json");
+const productManager = new ProductManager("./src/models/products.json");
 
 router.get("/", async (req, res) => {
   try {
-    const allProducts = await productManager.getProducts();
+    const allProducts = await productManager.readFlies();
     let limit = parseInt(req.query.limit);
     if (limit) {
       const productLimit = allProducts.slice(0, limit);
@@ -23,7 +23,7 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     let id = parseInt(req.params.id);
-    let allProducts = await productManager.getProducts();
+    let allProducts = await productManager.readFlies();
     const productById = await allProducts.find((item) => item.id === id);
 
     if (productById) {
